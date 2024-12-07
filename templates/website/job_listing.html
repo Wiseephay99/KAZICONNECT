@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+<section class="center_o bg_green">
+  <div class="container-xl">
+    <div class="p-5 bg-green  rounded-3">
+      <div class="container-fluid py-5">
+        <h2 class="display-5 fw-bold text-white">KaziConnect Jobs. Get Hired Quickly!</h2>
+        <p class="col-md-8 fs-5 mt-3 text-white">
+          All Available Jobs
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--<br>-->
+<!--old style of displaying the job-listing-->
+<!--<div class="row row-cols-1 row-cols-md-3 g-4">-->
+<!--  {% if jobs %}-->
+<!--  {% for job in jobs %}-->
+<!--      <div class="col">-->
+<!--        <div class="card h-100">-->
+<!--          <div class="card-body">-->
+<!--            <h5 class="card-title">{{ job.title }}</h5>-->
+<!--            <p class="card-text">Job Location {{ job.location }}</p>-->
+<!--            <p class="card-text">Posted by: {{ job.company }}</p>-->
+<!--            <p class="card-text">Salary {{ job.salary|intcomma }}</p>-->
+<!--&lt;!&ndash;            <p class="card-text">Requirements {{ job.requirements }}</p>&ndash;&gt;-->
+<!--            <a class="btn btn-primary btn-sm" href="{% url 'job-details' job.pk  %}">View Details</a>-->
+<!--          </div>-->
+<!--          <div class="card-footer">-->
+<!--           &lt;!&ndash;  Use of timestamp ..... installed app and load  humanize...natural day...added timestamp model.&ndash;&gt;-->
+<!--            <small class="text-muted">Created {{ job.timestamp|naturaltime }}</small>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--  {% endfor %}-->
+<!--  {% endif %}-->
+<!--</div>-->
+
+<section id="feat" class="bg_light p_3 mt-0 ">
+  <div class="container-xl">
+    <div class="row feat_1 text-center mb-4">
+      <div class="col-md-12">
+        <h1>Featured Jobs</h1>
+        <p class="mb-0">Explore some of the best jobs tailored to your needs.</p>
+      </div>
+    </div>
+    <div class="row feat_2 mb-4">
+        {% if jobs %}
+        {% for job in jobs %}
+      <div class="col-md-6 col-lg-3">
+        <div class="feat_2i border_1 rounded-3 bg-white pt-3 pb-3 mb-4">
+          <div class="feat_2i row mx-0 ">
+            <div class="col-md-6 col-6 ">
+              <div class="feat_2il">
+                <h6 class="d-inline-block bg_light rounded_30 p-2 px-3 font_13">{{ job.industry }}</h6>
+                <h6 class="d-inline-block bg-warning rounded_30 p-2 px-3 font_13 text-white mb-0">{{ job.salary|intcomma }}</h6>
+              </div>
+            </div>
+            <div class="col-md-6 col-6">
+              <div class="feat_2il text-end">
+                <h6 class="d-inline-block bg-danger rounded_30 p-2 px-3 font_13 text-white mb-0">{{ job.job_type }}</h6>
+              </div>
+            </div>
+          </div>
+          <div class="feat_2i1 p-3 text-center">
+            <span class="font_60 lh-1 col_green"><i class="fa fa-briefcase"></i></span>
+            <h6 class="fw-bold mt-3"><a href="{% url 'job-details' job.pk  %}">{{ job.title }}</a></h6>
+            <h6 class="font_14">{{ job.city }}</h6>
+          </div>
+          <div class="feat_2i2 row mx-0 text-center">
+            <div class="col-md-12 col-6">
+              <div class="feat_2i2r text-center">
+                <h6 class="mb-0 col_oran" href="{% url 'job-details' job.pk  %}">{{ job.timestamp|naturaltime }}</h6><br>
+                <h6 class="d-inline-block bg_green rounded_30 p-2 px-3 font_13 text-white mb-0"><a  class="text-white" href="{% url 'job-details' job.pk  %}">View Details</a></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        {% endfor %}
+        {% endif %}
+
+                        <div class="pages  text-center mt-4 row">
+                         <div class="col-md-12">
+                           <ul class="mb-0">
+                            <li><a href="detail.html"><i class="fa fa-chevron-left"></i></a></li>
+                            <li><a class="act" href="detail.html">1</a></li>
+                            <li><a href="detail.html">2</a></li>
+                            <li><a href="detail.html">3</a></li>
+                            <li><a href="detail.html">4</a></li>
+                            <li><a href="detail.html">5</a></li>
+                            <li><a href="detail.html">6</a></li>
+                            <li><a href="detail.html"><i class="fa fa-chevron-right"></i></a></li>
+                           </ul>
+                         </div>
+                </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

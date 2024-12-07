@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+<section id="center" class="center_o bg_green p-5 pt-5 pb-5">
+   <div class="container-xl py-5">
+	 <div class="row center_o1">
+		 <div class="col-md-12">
+		  <h1 class="text-white">{{ job.title }}</h1>
+		  <h5 class="col_oran mb-0 mt-3"><a class="text-white" href="#">{{ job.state }}</a> <span class="mx-2 text-white-50">/</span> {{ job.job_type }} / {{ job.salary|intcomma }}</h5>
+            <p class="col-md-8 fs-5 mt-3">
+            </p>
+            {% if has_applied == False %}
+            <a href="{% url 'apply-to-job'  job.pk %}" class="btn btn-warning btn-lg text-white" >Apply Now</a>
+            {% else %}
+            <p><span class="text-danger"> You have already applied for this Job </span></p>
+            {% endif %}
+		 </div>
+	 </div>
+ </div>
+</section>
+
+
+
+<section id="list" class="p_3 bg_light">
+   <div class="container-xl">
+	 <div class="row list_1">
+          <div class="col-md-12">
+            <div class="list_1dt">
+              <div class="list_1dt1 p-4 rounded-3 bg-white">
+                <h5 class="mb-3">Job Description</h5>
+                <p class="fs-6">{{ job.job_description }}</p>
+                <h5 class="mb-3">Job Responsibilities</h5>
+                <p class="fs-6">{{ job.job_responsibilities }}</p>
+                <h5 class="mb-3">Ideal Candidate </h5>
+                <p class="fs-6">{{ job.ideal_candidate }}</p>
+              </div>
+            </div>
+          </div>
+     </div>
+   </div>
+</section>
+
+
+<br>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <!-- First Card -->
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Other Details</h5>
+                <p class="card-text">
+                    This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Card -->
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">About the Company</h5>
+                <p class="card-text">{{ job.company.name}}</p>
+                <p>{{ job.company.city}}, {{ job.company.state}}</p>
+                <p>{{ job.company.est_date}}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Third Card -->
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Related Jobs</h5>
+                <p class="card-text">
+                    This card has supporting text below as a natural lead-in to additional content.
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+
+
+{% endblock content %}

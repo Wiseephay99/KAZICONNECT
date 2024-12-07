@@ -1,0 +1,178 @@
+/*
+Template Name: Consulting
+File: Layout CSS
+Author: TemplatesOnWeb
+Author URI: https://www.templateonweb.com/
+Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
+*/
+
+/*********************about****************/
+.about_h_1r p{
+border-left:2px solid #1ca774;
+padding-left:15px; 
+ }
+.about_h_1ril span{
+font-size:50px;
+margin-right:10px; 
+ }
+.about_h_1ri{
+border-top:1px solid #e2f7ef;
+border-bottom:1px solid #e2f7ef;
+padding-top:10px;
+padding-bottom:10px;
+margin-top:30px;
+margin-bottom:20px; 
+ }
+.about_h_1ri1r .span_1 a{
+font-size:30px;
+margin-right:10px;
+border:2px solid  #e2f7ef;
+width:60px;
+height:60px;
+line-height:58px;
+display:inline-block;
+text-align:center;
+border-radius:50%;
+ }
+ 
+.about_h_1l1 img{
+width:70%; 
+ }
+.about_h_1l2{
+top:0;
+right:70px;
+top:-50px; 
+ }
+.about_h_1l{
+margin-top:90px; 
+ }
+.bg_head {
+padding: 10px 30px;
+border-radius: 30px;
+box-shadow: 0 11px 27px rgb(0 9 71 / 13%);
+}
+
+.team_1i2{
+top:0;
+background:#000000db;
+padding:30px 15px;
+display:none;
+ }
+.team_1i3{
+background:#000000db;
+padding:20px 10px 40px 10px;
+bottom:0; 
+ }
+.team_1i4 ul li a i{
+color: #B1B1B1;
+ }
+.team_1i4 ul li a {
+background:#2E2D2D;
+border-radius:5px;
+ }
+.team_1i4{
+bottom:-20px; 
+ }
+.team_1i:hover .team_1i2{
+display:block; 
+ }
+.team_1i:hover .team_1i3{
+background:#ffffffed;
+ }
+.team_1i:hover .team_1i3 h4{
+color:#2E2D2D!important;
+ }
+.team_1i2 .button_2{
+padding:12px 30px;  
+  }
+#team{
+padding-bottom:60px; 
+ }
+ 
+.need_1i {
+background: rgba(255,255,255,0.1);
+}
+/*********************about_end****************/
+
+
+@media screen and (max-width : 767px){
+.about_h_1l{
+margin-top:0; 
+ }
+.about_h_1l img{
+width:100%;
+margin-bottom:15px; 
+ }
+.about_h_1l2 {
+display:none; 
+ }
+.about_h_1r{
+text-align:center; 
+ }
+.about_h_1r p{
+text-align:left; 
+ }
+.about_h_1ril{
+text-align:left;  
+ }
+.about_h_1ri1 {
+text-align:left;  
+ }
+.about_h_1ri1r{
+margin-top:15px; 
+ }
+.team_1i{
+margin-top:30px; 
+ }
+.team_1i2 p{
+text-align:left;  
+ }
+
+.need_1i {
+margin-top:8px;
+margin-bottom:8px;
+text-align:center; 
+ }
+.need_1i p {
+text-align:left; 
+ }
+ }
+
+@media (min-width:576px) and (max-width:767px) {
+
+ }
+@media (min-width:768px) and (max-width:991px) {
+.about_h_1l2 {
+right: 30px;
+}
+.about_h_1l1 img{
+min-height:420px; 
+ }
+.about_h_1r br{
+display:none; 
+ }
+ 
+.team_1i4 ul li a {
+width:30px;
+height:30px;
+}
+.team_1i4 ul li a i{
+line-height:30px;
+font-size:14px;
+}
+.team_1i2  p{
+font-size:12px; 
+ }
+ }
+
+@media (min-width:992px) and (max-width:1200px) {
+.team_1i2  p{
+font-size:14px; 
+ }
+ }
+@media (min-width:1201px) and (max-width:1300px) {
+
+ }
+
+
+

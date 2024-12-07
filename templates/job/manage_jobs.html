@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load humanize %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card mx-auto" style="width: 76rem;">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+            <h5 class="card-title mb-3">Manage Your Jobs</h5>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Job Title</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Salary (ksh)</th>
+                        <th scope="col">No. of Applicants</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Update Job AD</th>
+                        <th scope="col">View Job AD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%  for job in jobs    %}
+                    <tr>
+                        <td>{{ job.title }}</td>
+                        <td>{{ job.city }}</td>
+                        <td>{{ job.salary|intcomma }}</td>
+                        <td>{{ job.applyjob_set.all.count}} <a href="{% url 'all-applicants'  job.pk %}">  <small>View all</small></a>  </td>
+                        {% if job.is_available  %}
+                        <td><span class="badge bg-success">Active</span></td>
+                        {% else %}
+                        <td><span class="badge bg-warning">Not Active</span></td>
+                        {% endif %}
+                        <td><a href="{% url 'update-job' job.pk %}">Update Job</a></td>
+                        <td><a href="{% url 'job-details' job.pk  %}">View Job AD</a></td>
+                    </tr>
+                    {%  endfor    %}
+                </tbody>
+            </table>
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

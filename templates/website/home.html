@@ -1,0 +1,416 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+{% load static %}
+
+<section id="center" class="center_h  p_3">
+    <div class="container-xl">
+        <div class="row center_h1">
+         <div class="col-md-7">
+            <div class="center_h1l mt-5">
+              <h6 class="bg_light col_green rounded_30 d-inline-block p-2 px-3 fw-bold"><i class="fa fa-long-arrow-right me-1"></i> Get Hot & Trending Jobs</h6>
+              <h1 class="mt-3 mb-3 font_50">KaziConnect Job Platform.Get Hired Quickly.  </h1>
+              <p class="fs-5">Getting a new job is never easy. Check what new jobs we have in store for you on Job Stock.</p>
+              <div class="center_h1li row">
+                   <div class="col-md-6">
+                            <div class="center_h1lil">
+                             <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> 10+ Job Posted</h6>
+                            </div>
+                   </div>
+                   <div class="col-md-6">
+                        <div class="center_h1lil">
+                         <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Unlimited Team</h6>
+                        </div>
+                   </div>
+              </div>
+
+                <form action=""  method="GET">
+                    <div class="center_h1li row  p-3 mx-0 mt-4 border_1 rounded-3">
+                        <div class="col-md-4">
+                             <div class="center_h1li1 mt-1">
+                                    <label class="form-label fw-bold">Name</label>
+                                       <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary bg-transparent rounded-0 fs-5 border-0 col_green" type="button">
+                                                    <i class="fa fa-search"></i> </button>
+                                            </span>
+                                           {% render_field filter.form.title  class="form-control" placeholder="Job Keyword"  type="text" %}
+
+                                       </div>
+                             </div>
+                        </div>
+                        <div class="col-md-4">
+                             <div class="center_h1li1 mt-1">
+                                 <label class="form-label fw-bold">Select Location</label>
+                                       <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary bg-transparent rounded-0 fs-5 border-0 col_green" type="button">
+                                                    <i class="fa fa-briefcase"></i> </button>
+                                            </span>
+                                           {%  render_field filter.form.state class="form-select " %}
+<!--                                            <input type="text" class="form-control border-0" placeholder="Postcode">-->
+                                       </div>
+                             </div>
+                        </div>
+                        <div class="col-md-4">
+                             <div class="center_h1li1 mt-1">
+                                 <label class="form-label fw-bold">Choose Job Type</label>
+                                       <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary bg-transparent rounded-0 fs-5 border-0 col_green" type="button">
+                                                    <i class="fa fa-briefcase"></i> </button>
+                                            </span>
+                                           {%  render_field filter.form.job_type class="form-select"   %}
+<!--                                            <input type="text" class="form-control border-0" placeholder="Postcode">-->
+                                       </div>
+                             </div>
+                        </div>
+
+                    </div>
+                    <div class="center_h1li row  p-3 mx-0 mt-4 border_1 rounded-3">
+                        <div class="col-md-8">
+                             <div class="center_h1li1 mt-1">
+                                 <label class="form-label fw-bold">Select Industry</label>
+                                       <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary bg-transparent rounded-0 fs-5 border-0 col_green" type="button">
+                                                    <i class="fa fa-industry"></i>  </button>
+                                            </span>
+                                           {%  render_field filter.form.industry class="form-select"   %}
+<!--                                            <input type="text" class="form-control border-0" placeholder="Postcode">-->
+                                       </div>
+                             </div>
+                        </div>
+                        <div class="col-md-4">
+                             <div class="center_h1li3">
+                                 <label class="form-label fw-bold"> Browse</label>
+                                 <button type="submit" class="btn btn-success d-block text-center px-lg-5 py-lg-3">Search Job</button>
+<!--                                    <h6 class="mb-0"><a class="button d-block text-center" href="#">Search Job</a></h6>-->
+                             </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+         </div>
+         <div class="col-md-5">
+          <div class="center_h1r">
+           <div class="center_h1ri row">
+            <div class="col-md-6 col-sm-6">
+             <div class="center_h1ril">
+              <img src="{% static 'img/img/1.jpg' %}" class="w-100 h-100 rounded-circle">
+              <img src="{% static 'img/img/4.jpg' %}" class="w-100 rounded_30 mt-4">
+             </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+             <div class="center_h1ril">
+              <img src="{% static 'img/img/2.jpg' %}" class="w-100 rounded_30">
+              <img src="{% static 'img/img/3.jpg' %}" class="w-100 rounded-circle mt-4">
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+    </div>
+</section>
+<!--Old style of displaying the search form which still works-->
+<!--<section>-->
+<!--                <div class="container-fluid p-5 mb-4 bg-light rounded-3">-->
+<!--                    <div class="container-fluid py-5">-->
+<!--                        <h2 class="display-5 fw-bold"> KaziConnect.Get Hired Quickly-->
+<!--                        </h2> <br>-->
+<!--                        <div class="card">-->
+<!--                            <div class="card-body">-->
+<!--                                <form action="" class="row gy-2 gx-3 align-items-center" method="GET">-->
+<!--                                    <div class="col-sm-2">-->
+<!--                                        <label for="autoSizingInput">Name</label>-->
+<!--                                            &lt;!&ndash; uses load widget tweaks to filter search based on the job title&ndash;&gt;-->
+<!--                                        {% render_field filter.form.title  class="form-control" id="autoSizingInput" placeholder="Job Keyword"  type="text" %}-->
+<!--                                    </div>-->
+<!--                                    <div class="col-sm-3">-->
+<!--                                        <label for="autoSizingSelect" >Select Location</label>-->
+<!--                                        {%  render_field filter.form.state class="form-select"   %}-->
+<!--&lt;!&ndash;                                        <select id="autoSizingSelect" class="form-select">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option selected>Select Location</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option value="1">One</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option value="2">Two</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option value="3">Three</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </select>&ndash;&gt;-->
+<!--                                    </div>-->
+<!--                                     <div class="col-sm-3">-->
+<!--                                        <label for="autoSizingSelect">Choose Job Type</label>-->
+<!--                                           {%  render_field filter.form.job_type class="form-select"   %}-->
+<!--&lt;!&ndash;                                        <select class="form-select" id="autoSizingSelect">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option selected>Choose Job Type</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option value="1">One</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option value="2">Two</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option value="3">Three</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </select>&ndash;&gt;-->
+<!--                                    </div>-->
+<!--                                    <div class="col-sm-3">-->
+<!--                                        <label for="autoSizingSelect">Select Industry</label>-->
+<!--                                            {%  render_field filter.form.industry class="form-select"   %}-->
+<!--&lt;!&ndash;                                        <select class="form-select" id="autoSizingSelect">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option selected>Select Industry</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option value="1">One</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option value="2">Two</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option value="3">Three</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </select>&ndash;&gt;-->
+<!--                                    </div>-->
+<!--                                    <div class="col-auto">-->
+<!--                                        <br>-->
+<!--                                        <button type="submit" class="btn btn-success">Search</button>-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <br>-->
+<!--                        <p>-->
+<!--                            Welcome to Kazi Connect Portal! Search and get your dream job. We have thousands of Job-->
+<!--                            offerings for you. Don't forget to leave a like when you get a Job.<br> Good luck with your Job Hunt!-->
+<!--                        </p>-->
+<!--                         <a href="{% url 'job-listing' %}" class="btn btn-outline-success">Browse More Jobs</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--</section>-->
+
+<!--Old way of displaying the jobs that ae featured or available-->
+<!--<section id="feat" class="bg_light p_3">-->
+<!-- <div class="container-xl">-->
+<!--            <div class="row row-cols-1 row-cols-md-4 g-4">-->
+<!--                {% for job in filter.qs %}-->
+<!--                <div class="col">-->
+<!--                    <div class="card h-100">-->
+<!--                        <div class="card-body">-->
+<!--                            <h5 class="card-title">{{ job.title }}</h5>-->
+<!--                            <p>Industry: {{ job.industry }}</p>-->
+<!--                            <p>Job Type: {{ job.job_type }}</p>-->
+<!--                            <p>Location: {{ job.city }}, {{ job.salary }}</p>-->
+<!--                            <p>Salary: {{ job.salary|intcomma }}</p>-->
+<!--                        </div>-->
+<!--                        <div class="card-footer">-->
+<!--                            <small class="text-muted">{{ job.timestamp|naturaltime }}</small>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                {% endfor %}-->
+<!--            </div>-->
+<!-- </div>-->
+<!--</section>-->
+<br>
+<section id="feat" class="bg_light p_3 mt-3sss">
+  <div class="container-xl">
+    <div class="row feat_1 text-center mb-4">
+      <div class="col-md-12">
+        <h1>Featured Jobs</h1>
+        <p class="mb-0">Explore some of the best jobs tailored to your needs.</p>
+      </div>
+    </div>
+    <div class="row feat_2 mb-4">
+      {% for job in filter.qs %}
+      <div class="col-md-6 col-lg-3">
+        <div class="feat_2i border_1 rounded-3 bg-white pt-3 pb-3 mb-4">
+          <div class="feat_2i row mx-0 ">
+            <div class="col-md-6 col-6 ">
+              <div class="feat_2il">
+                <h6 class="d-inline-block bg_light rounded_30 p-2 px-3 font_13">{{ job.industry }}</h6>
+                <h6 class="d-inline-block bg-warning rounded_30 p-2 px-3 font_13 text-white mb-0">{{ job.salary|intcomma }}</h6>
+              </div>
+            </div>
+            <div class="col-md-6 col-6">
+              <div class="feat_2il text-end">
+                <h6 class="d-inline-block bg-danger rounded_30 p-2 px-3 font_13 text-white mb-0">{{ job.job_type }}</h6>
+              </div>
+            </div>
+          </div>
+          <div class="feat_2i1 p-3 text-center">
+            <span class="font_60 lh-1 col_green"><i class="fa fa-briefcase"></i></span>
+            <h6 class="fw-bold mt-3"><a href="#">{{ job.title }}</a></h6>
+            <h6 class="font_14">{{ job.city }}</h6>
+          </div>
+          <div class="feat_2i2 row mx-0">
+<!--            <div class="col-md-6 col-6">-->
+<!--              <div class="feat_2i2l">-->
+<!--                <h5 class="mb-0 col_oran">{{ job.salary|intcomma }}</h5>-->
+<!--              </div>-->
+<!--            </div>-->
+            <div class="col-md-7 col-6">
+              <div class="feat_2i2r text-end">
+                <h6 class="d-inline-block bg_green rounded_30 p-2 px-3 font_13 text-white mb-0">{{ job.timestamp|naturaltime }}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+                        <div class="pages  text-center mt-4 row">
+                         <div class="col-md-12">
+                           <ul class="mb-0">
+                            <li><a href="detail.html"><i class="fa fa-chevron-left"></i></a></li>
+                            <li><a class="act" href="detail.html">1</a></li>
+                            <li><a href="detail.html">2</a></li>
+                            <li><a href="detail.html">3</a></li>
+                            <li><a href="detail.html">4</a></li>
+                            <li><a href="detail.html">5</a></li>
+                            <li><a href="detail.html">6</a></li>
+                            <li><a href="detail.html"><i class="fa fa-chevron-right"></i></a></li>
+                           </ul>
+                         </div>
+                </div>
+    </div>
+  </div>
+</section>
+
+<!--&lt;!&ndash;Previous Numbering&ndash;&gt;-->
+<!--<div class="row align-items-center">-->
+<!--    <div class="col-md-10 mx-auto col-lg-2 mt-4">-->
+<!--                    <nav aria-label="...">-->
+<!--                        <ul class="pagination">-->
+<!--                            <li class="page-item disabled">-->
+<!--                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>-->
+<!--                            </li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#"> 1 </a></li>-->
+<!--                            <li class="page-item active" aria-current="page">-->
+<!--                                <a class="page-link" href="#">2</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#"> 3 </a></li>-->
+<!--                            <li class="page-item active" aria-current="page">-->
+<!--                                <a class="page-link" href="#">Next</a></li>-->
+<!--                        </ul>-->
+<!--                    </nav>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<section id="advan" class="p_3 bg_light">
+  <div class="container">
+    <div class="advan_1 row">
+      <div class="col-md-6">
+        <div class="advan_1l">
+          <img src="{% static 'img/img/5.jpg' %}" class="w-100" height="720" alt="Job Portal Features">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="advan_1r">
+          <h6 class="d-inline-block bg_lighto col_oran font_14 p-2 px-3 rounded-3 fw-bold">Advanced Features</h6>
+          <h2 class="mt-2">Trusted & Popular Job Portal</h2>
+          <p class="mb-0">Our platform connects job seekers with the best opportunities and recruiters with the best talent. Enjoy advanced features designed to make job searching and hiring simple and efficient.</p>
+          <div class="advan_1ri row mt-4">
+            <div class="col-md-2">
+              <div class="advan_1ril">
+                <span class="font_70 col_green lh-1"><i class="fa fa-check-circle"></i></span>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="advan_1rir">
+                <h5>#1 Quality Job Listings</h5>
+                <p class="mb-0">Explore a wide range of top-quality job openings in various industries, updated daily.</p>
+              </div>
+            </div>
+          </div>
+          <div class="advan_1ri row mt-4">
+            <div class="col-md-2">
+              <div class="advan_1ril">
+                <span class="font_70 col_green lh-1"><i class="fa fa-check-circle"></i></span>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="advan_1rir">
+                <h5>Top Companies</h5>
+                <p class="mb-0">Find jobs from leading companies that value your skills and expertise.</p>
+              </div>
+            </div>
+          </div>
+          <div class="advan_1ri row mt-4">
+            <div class="col-md-2">
+              <div class="advan_1ril">
+                <span class="font_70 col_green lh-1"><i class="fa fa-check-circle"></i></span>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="advan_1rir">
+                <h5>International Opportunities</h5>
+                <p class="mb-0">Discover job opportunities around the globe and take your career to the next level.</p>
+              </div>
+            </div>
+          </div>
+          <div class="advan_1ri row mt-4">
+            <div class="col-md-2">
+              <div class="advan_1ril">
+                <span class="font_70 col_green lh-1"><i class="fa fa-check-circle"></i></span>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="advan_1rir">
+                <h5>No Hidden Fees</h5>
+                <p class="mb-0">Enjoy access to jobs and services without any extra or hidden charges.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="advan_2 row mt-4">
+      <div class="col-md-6">
+        <div class="advan_2l">
+          <h6 class="d-inline-block bg_light col_green font_14 p-2 px-3 rounded-3 fw-bold">Advanced Features</h6>
+          <h2 class="mt-2">Best Job Search Platform for You</h2>
+          <p class="mb-0">Easily search for jobs that match your skills and career goals. Our platform ensures a seamless experience for job seekers and recruiters alike.</p>
+          <div class="center_h1li row mt-4">
+            <div class="col-md-6 col-sm-6">
+              <div class="center_h1lil">
+                <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Corporate Jobs</h6>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="center_h1lil">
+                <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Showcase Your Company</h6>
+              </div>
+            </div>
+          </div>
+          <div class="center_h1li row mt-4">
+            <div class="col-md-6 col-sm-6">
+              <div class="center_h1lil">
+                <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Creative Roles</h6>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="center_h1lil">
+                <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Easy Resume Upload</h6>
+              </div>
+            </div>
+          </div>
+          <div class="center_h1li row mt-4">
+            <div class="col-md-6 col-sm-6">
+              <div class="center_h1lil">
+                <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> E-commerce Jobs</h6>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="center_h1lil">
+                <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Hire Top Talent</h6>
+              </div>
+            </div>
+          </div>
+          <h6 class="mb-0 mt-4"><a class="button" href="#">Explore More Jobs</a></h6>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="advan_2r">
+          <div class="grid clearfix">
+            <figure class="effect-jazz mb-0">
+              <a href="#"><img src="{% static 'img/img/6.jpg' %}" class="w-100" alt="Job Portal Showcase"></a>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock content %}

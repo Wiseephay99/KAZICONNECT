@@ -1,0 +1,901 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Consulting</title>
+
+    <!-- Link CSS Files using static tag -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/global.css' %}" rel="stylesheet">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</head>
+<body>
+
+<section id="header">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow_box" id="navbar_sticky">
+        <div class="container-xl">
+            <a class="text-black p-0 navbar-brand fw-bold me-4 text-uppercase" href="{% url 'home' %}">
+                <i class="fa fa-building col_green me-1 fs-2 align-middle"></i> Consulting
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-md-4 ps-md-2 ms-lg-3 ps-lg-2 ms-xl-5 ps-xl-5 nav_left">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Jobs</a>
+                        <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'job-listing' %}">Jobs</a></li>
+                            <li><a class="dropdown-item border-0" href="{% url 'job-detail' %}">Job Detail</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Blog
+                        </a>
+                        <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'blog' %}">Blog</a></li>
+                            <li><a class="dropdown-item border-0" href="{% url 'blog-detail' %}">Blog Detail</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'pricing' %}">Pricing</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Pages
+                        </a>
+                        <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'faq' %}">FAQ</a></li>
+                            <li><a class="dropdown-item" href="{% url 'terms' %}">Terms & Privacy</a></li>
+                            <li><a class="dropdown-item border-0" href="{% url 'contact' %}">Contact</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mb-0 ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav_hide" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa fa-sign-in col_green me-1 align-middle"></i> Sign In
+                        </a>
+                        <ul class="dropdown-menu drop_2 p-3" aria-labelledby="navbarDropdown">
+                            <li>
+                                <input class="form-control" placeholder="Email Address" type="text">
+                                <input class="form-control mt-3" placeholder="Password" type="password">
+                                <div class="form-check mt-3">
+                                    <input type="checkbox" class="form-check-input" id="customCheck1">
+                                    <label class="form-check-label" for="customCheck1">Keep me signed in</label>
+                                </div>
+                                <h6 class="mt-3"><a href="#">Forgot password?</a></h6>
+                                <h6 class="mt-3"><a class="button d-block text-center" href="#">Sign In</a></h6>
+                                <h6 class="mt-3 text-center">Don't have an account? <a href="#">Sign up</a></h6>
+                                <h6 class="mt-3 fw-bold col_green text-center">or</h6>
+                                <ul class="mb-0 mt-3">
+                                    <li class="d-inline-block"><a class="button p-3 font_14" href="#"><i class="fa fa-facebook me-1 align-middle fs-5"></i>  Log In Via Facebook </a></li>
+                                    <li class="d-inline-block ms-2"><a class="button_1 p-3 font_14" href="#"><i class="fa fa-google me-1 fs-5 align-middle"></i> Log In Via Gmail</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link button fs-6" href="{% url 'upload-resume' %}"><i class="fa fa-cloud-upload me-1 align-middle"></i> Upload Resume</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
+
+</body>
+</html>
+
+
+<section id="center" class="center_h  p_3">
+ <div class="container-xl">
+  <div class="row center_h1">
+     <div class="col-md-7">
+        <div class="center_h1l mt-5">
+	      <h6 class="bg_light col_green rounded_30 d-inline-block p-2 px-3 fw-bold"><i class="fa fa-long-arrow-right me-1"></i> Get Hot & Trending Jobs</h6>
+		  <h1 class="mt-3 mb-3 font_50">Remote Work Platform For Digital Team</h1>
+		  <p class="fs-5">Getting a new job is never easy. Check what new jobs we have in store for you on Job Stock.</p>
+		  <div class="center_h1li row">
+		   <div class="col-md-6">
+		    <div class="center_h1lil">
+			 <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> 6 Job Posted</h6>
+			</div>
+		   </div>
+		   <div class="col-md-6">
+		    <div class="center_h1lil">
+			 <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Unlimited Team</h6>
+			</div>
+		   </div>
+		  </div>
+		  
+		  <div class="center_h1li row  p-3 mx-0 mt-4 border_1 rounded-3">
+	    <div class="col-md-4">
+		 <div class="center_h1li1 mt-1">
+		   <div class="input-group">
+		        <span class="input-group-btn">
+					<button class="btn btn-primary bg-transparent rounded-0 fs-5 border-0 col_green" type="button">
+						<i class="fa fa-search"></i> </button>
+				</span>
+				<input type="text" class="form-control border-0" placeholder="Skill, Keywords ">
+		</div>
+		 </div>
+		</div>
+		<div class="col-md-4">
+		 <div class="center_h1li1 mt-1">
+		   <div class="input-group">
+		        <span class="input-group-btn">
+					<button class="btn btn-primary bg-transparent rounded-0 fs-5 border-0 col_green" type="button">
+						<i class="fa fa-map-marker"></i> </button>
+				</span>
+				<input type="text" class="form-control border-0" placeholder="Postcode">
+		</div>
+		 </div>
+		</div>
+		<div class="col-md-4">
+		 <div class="center_h1li3">
+		  <h6 class="mb-0"><a class="button d-block text-center" href="#">Find Job</a></h6>
+		 </div>
+		</div>
+	   </div>
+	  </div>
+	 </div>
+	 <div class="col-md-5">
+	  <div class="center_h1r">
+	   <div class="center_h1ri row">
+	    <div class="col-md-6 col-sm-6">
+		 <div class="center_h1ril">
+		  <img src="img/1.jpg" class="w-100 rounded-circle">
+		  <img src="img/4.jpg" class="w-100 rounded_30 mt-4">
+		 </div>
+		</div>
+		<div class="col-md-6 col-sm-6">
+		 <div class="center_h1ril">
+		  <img src="img/2.jpg" class="w-100 rounded_30">
+		  <img src="img/3.jpg" class="w-100 rounded-circle mt-4">
+		 </div>
+		</div>
+	   </div>
+	  </div>
+	 </div>
+  </div>
+ </div>
+</section>
+
+<section id="feat" class="bg_light  p_3">
+ <div class="container-xl">
+  <div class="row feat_1 text-center mb-4">
+    <div class="col-md-12">
+	 <h1>Featured Jobs</h1>
+	 <p class="mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis <br> praesentium voluptatum deleniti atque corrupti quos dolores</p>
+	</div>
+  </div>
+  <div class="row feat_2 mb-4">
+    <div class="col-md-6 col-lg-3">
+     <div class="feat_2i border_1 rounded-3 bg-white pt-3 pb-3">
+	  <div class="feat_2i row mx-0">
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2il">
+		 <h6 class="d-inline-block bg_light rounded_30 p-2 px-3 font_13">Featured</h6>
+		  <h6 class="d-inline-block bg-warning rounded_30 p-2 px-3 font_13 text-white mb-0">Urgent</h6>
+		</div>
+	   </div>
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2il text-end">
+		  <h6 class="d-inline-block bg-danger rounded_30 p-2 px-3 font_13 text-white mb-0">Enternship</h6>
+		</div>
+	   </div>
+	  </div>
+	  <div class="feat_2i1 p-3 text-center">
+	    <span class="font_60 lh-1 col_green"><i class="fa fa-deviantart"></i></span>
+		<h6 class="fw-bold mt-3"><a href="#">Jr. PHP Developer</a></h6>
+		<h6 class="font_14">CSS3, HTML5, Javascript, Bootstrap, Jquery</h6>
+	  </div>
+	  <div class="feat_2i2 row mx-0">
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2i2l">
+		<h5 class="mb-0 col_oran">$5K - $8K</h5>
+		</div>
+	   </div>
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2i2r text-end">
+		  <h6 class="d-inline-block bg_green rounded_30 p-2 px-3 font_13 text-white mb-0">6 Open</h6>
+		</div>
+	   </div>
+	  </div>
+	 </div> 
+	</div>
+	<div class="col-md-6 col-lg-3">
+     <div class="feat_2i border_1 rounded-3 bg-white pt-3 pb-3">
+	  <div class="feat_2i row mx-0">
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2il">
+		 <h6 class="d-inline-block bg_light rounded_30 p-2 px-3 font_13">Featured</h6>
+		  <h6 class="d-inline-block bg-warning rounded_30 p-2 px-3 font_13 text-white mb-0">Urgent</h6>
+		</div>
+	   </div>
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2il text-end">
+		  <h6 class="d-inline-block bg-danger rounded_30 p-2 px-3 font_13 text-white mb-0">Freelancer</h6>
+		</div>
+	   </div>
+	  </div>
+	  <div class="feat_2i1 p-3 text-center">
+	    <span class="font_60 lh-1 col_green"><i class="fa fa-pinterest"></i></span>
+		<h6 class="fw-bold mt-3"><a href="#">Exp. Project manager</a></h6>
+		<h6 class="font_14">CSS3, HTML5, Javascript, Bootstrap, Jquery</h6>
+	  </div>
+	  <div class="feat_2i2 row mx-0">
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2i2l">
+		<h5 class="mb-0 col_oran">$4K - $6K</h5>
+		</div>
+	   </div>
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2i2r text-end">
+		  <h6 class="d-inline-block bg_green rounded_30 p-2 px-3 font_13 text-white mb-0">5 Open</h6>
+		</div>
+	   </div>
+	  </div>
+	 </div> 
+	</div>
+	<div class="col-md-6 col-lg-3">
+     <div class="feat_2i border_1 rounded-3 bg-white pt-3 pb-3">
+	  <div class="feat_2i row mx-0">
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2il">
+		 <h6 class="d-inline-block bg_light rounded_30 p-2 px-3 font_13">Featured</h6>
+		  <h6 class="d-inline-block bg-warning rounded_30 p-2 px-3 font_13 text-white mb-0">Urgent</h6>
+		</div>
+	   </div>
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2il text-end">
+		  <h6 class="d-inline-block bg-danger rounded_30 p-2 px-3 font_13 text-white mb-0">Part Time</h6>
+		</div>
+	   </div>
+	  </div>
+	  <div class="feat_2i1 p-3 text-center">
+	    <span class="font_60 lh-1 col_green"><i class="fa fa-shopping-cart"></i></span>
+		<h6 class="fw-bold mt-3"><a href="#">Sr. WordPress Developer</a></h6>
+		<h6 class="font_14">CSS3, HTML5, Javascript, Bootstrap, Jquery</h6>
+	  </div>
+	  <div class="feat_2i2 row mx-0">
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2i2l">
+		<h5 class="mb-0 col_oran">$6K - $9K</h5>
+		</div>
+	   </div>
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2i2r text-end">
+		  <h6 class="d-inline-block bg_green rounded_30 p-2 px-3 font_13 text-white mb-0">3 Open</h6>
+		</div>
+	   </div>
+	  </div>
+	 </div> 
+	</div>
+	<div class="col-md-6 col-lg-3">
+     <div class="feat_2i border_1 rounded-3 bg-white pt-3 pb-3">
+	  <div class="feat_2i row mx-0">
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2il">
+		 <h6 class="d-inline-block bg_light rounded_30 p-2 px-3 font_13">Featured</h6>
+		  <h6 class="d-inline-block bg-warning rounded_30 p-2 px-3 font_13 text-white mb-0">Urgent</h6>
+		</div>
+	   </div>
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2il text-end">
+		  <h6 class="d-inline-block bg-danger rounded_30 p-2 px-3 font_13 text-white mb-0">Full Time</h6>
+		</div>
+	   </div>
+	  </div>
+	  <div class="feat_2i1 p-3 text-center">
+	    <span class="font_60 lh-1 col_green"><i class="fa fa-digg"></i></span>
+		<h6 class="fw-bold mt-3"><a href="#">Jr. Laravel Developer</a></h6>
+		<h6 class="font_14">CSS3, HTML5, Javascript, Bootstrap, Jquery</h6>
+	  </div>
+	  <div class="feat_2i2 row mx-0">
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2i2l">
+		<h5 class="mb-0 col_oran">$5K - $7K</h5>
+		</div>
+	   </div>
+	   <div class="col-md-6 col-6">
+	    <div class="feat_2i2r text-end">
+		  <h6 class="d-inline-block bg_green rounded_30 p-2 px-3 font_13 text-white mb-0">6 Open</h6>
+		</div>
+	   </div>
+	  </div>
+	 </div> 
+	</div>
+  </div>
+
+ </div>
+</section>
+
+<section id="categ" class="p_3">
+ <div class="container-xl">
+  <div class="row feat_1 text-center mb-4">
+    <div class="col-md-12">
+	 <h1>Explore Top Categories</h1>
+	 <p class="mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis <br> praesentium voluptatum deleniti atque corrupti quos dolores</p>
+	</div>
+  </div>
+  <div class="row categ_1">
+    <div class="col-md-3">
+	 <div class="categ_1i shadow_box p-4 px-3 rounded-3">
+	  <span class="lh-1 col_green fs-1"><i class="fa fa-file"></i></span>
+	  <h5 class="mt-3"><a href="#">Accounting & Finance</a></h5>
+	  <p class="fs-6">You can view all popular jobs according your future careers.</p>
+	  <h6 class="mb-0 col_green">124 Active Jobs</h6>
+	 </div>
+	</div>
+	<div class="col-md-3">
+	 <div class="categ_1i shadow_box p-4 px-3 rounded-3">
+	  <span class="lh-1 col_green fs-1"><i class="fa fa-car"></i></span>
+	  <h5 class="mt-3"><a href="#">Automotive Jobs</a></h5>
+	  <p class="fs-6">You can view all popular jobs according your future careers.</p>
+	  <h6 class="mb-0 col_green">114 Active Jobs</h6>
+	 </div>
+	</div>
+	<div class="col-md-3">
+	 <div class="categ_1i shadow_box p-4 px-3 rounded-3">
+	  <span class="lh-1 col_green fs-1"><i class="fa fa-tencent-weibo"></i></span>
+	  <h5 class="mt-3"><a href="#">Business & Tech</a></h5>
+	  <p class="fs-6">You can view all popular jobs according your future careers.</p>
+	  <h6 class="mb-0 col_green">34 Active Jobs</h6>
+	 </div>
+	</div>
+	<div class="col-md-3">
+	 <div class="categ_1i shadow_box p-4 px-3 rounded-3">
+	  <span class="lh-1 col_green fs-1"><i class="fa fa-graduation-cap"></i></span>
+	  <h5 class="mt-3"><a href="#">Education Training</a></h5>
+	  <p class="fs-6">You can view all popular jobs according your future careers.</p>
+	  <h6 class="mb-0 col_green">224 Active Jobs</h6>
+	 </div>
+	</div>
+  </div>
+  <div class="row categ_1 mt-4">
+    <div class="col-md-3">
+	 <div class="categ_1i shadow_box p-4 px-3 rounded-3">
+	  <span class="lh-1 col_green fs-1"><i class="fa fa-medkit"></i></span>
+	  <h5 class="mt-3"><a href="#">Healthcare</a></h5>
+	  <p class="fs-6">You can view all popular jobs according your future careers.</p>
+	  <h6 class="mb-0 col_green">84 Active Jobs</h6>
+	 </div>
+	</div>
+	<div class="col-md-3">
+	 <div class="categ_1i shadow_box p-4 px-3 rounded-3">
+	  <span class="lh-1 col_green fs-1"><i class="fa fa-spoon"></i></span>
+	  <h5 class="mt-3"><a href="#">Restaurant & Food</a></h5>
+	  <p class="fs-6">You can view all popular jobs according your future careers.</p>
+	  <h6 class="mb-0 col_green">64 Active Jobs</h6>
+	 </div>
+	</div>
+	<div class="col-md-3">
+	 <div class="categ_1i shadow_box p-4 px-3 rounded-3">
+	  <span class="lh-1 col_green fs-1"><i class="fa fa-plane"></i></span>
+	  <h5 class="mt-3"><a href="#">Transportation</a></h5>
+	  <p class="fs-6">You can view all popular jobs according your future careers.</p>
+	  <h6 class="mb-0 col_green">144 Active Jobs</h6>
+	 </div>
+	</div>
+	<div class="col-md-3">
+	 <div class="categ_1i shadow_box p-4 px-3 rounded-3">
+	  <span class="lh-1 col_green fs-1"><i class="fa fa-mobile"></i></span>
+	  <h5 class="mt-3"><a href="#">Telecommunications</a></h5>
+	  <p class="fs-6">You can view all popular jobs according your future careers.</p>
+	  <h6 class="mb-0 col_green">94 Active Jobs</h6>
+	 </div>
+	</div>
+  </div>
+ </div>
+</section>
+
+<section id="advan" class="p_3 bg_light">
+ <div class="container-xl">
+   <div class="advan_1 row">
+    <div class="col-md-6">
+	 <div class="advan_1l">
+	  <img src="img/5.jpg" class="w-100" height="720" alt="abc">
+	 </div>
+	</div>
+	<div class="col-md-6">
+	 <div class="advan_1r">
+	  <h6 class="d-inline-block bg_lighto col_oran font_14 p-2 px-3 rounded-3 fw-bold">Advanced Features</h6>
+	  <h2 class="mt-2">Trusted & Popular 
+Job Portal</h2>
+     <p class="mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+	 <div class="advan_1ri row mt-4">
+	  <div class="col-md-2">
+	   <div class="advan_1ril">
+	     <span class="font_70 col_green lh-1"><i class="fa fa-check-circle"></i></span>
+	   </div>
+	  </div>
+	  <div class="col-md-10">
+	   <div class="advan_1rir">
+	     <h5>#1 Quality Job</h5>
+		 <p class="mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+	   </div>
+	  </div>
+	 </div>
+	 <div class="advan_1ri row mt-4">
+	  <div class="col-md-2">
+	   <div class="advan_1ril">
+	     <span class="font_70 col_green lh-1"><i class="fa fa-check-circle"></i></span>
+	   </div>
+	  </div>
+	  <div class="col-md-10">
+	   <div class="advan_1rir">
+	     <h5>Top Companies</h5>
+		 <p class="mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+	   </div>
+	  </div>
+	 </div>
+	 <div class="advan_1ri row mt-4">
+	  <div class="col-md-2">
+	   <div class="advan_1ril">
+	     <span class="font_70 col_green lh-1"><i class="fa fa-check-circle"></i></span>
+	   </div>
+	  </div>
+	  <div class="col-md-10">
+	   <div class="advan_1rir">
+	     <h5>International Jobs</h5>
+		 <p class="mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+	   </div>
+	  </div>
+	 </div>
+	 <div class="advan_1ri row mt-4">
+	  <div class="col-md-2">
+	   <div class="advan_1ril">
+	     <span class="font_70 col_green lh-1"><i class="fa fa-check-circle"></i></span>
+	   </div>
+	  </div>
+	  <div class="col-md-10">
+	   <div class="advan_1rir">
+	     <h5>No Extra Charges</h5>
+		 <p class="mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+	   </div>
+	  </div>
+	 </div>
+	 </div>
+	</div>
+   </div>
+   <div class="advan_2 row mt-4">
+    <div class="col-md-6">
+	 <div class="advan_2l">
+	    <h6 class="d-inline-block bg_light col_green font_14 p-2 px-3 rounded-3 fw-bold">Advanced Features</h6>
+	  <h2 class="mt-2">Best Job Search platform
+Experience for you</h2>
+     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	 <div class="center_h1li row mt-4">
+		   <div class="col-md-6 col-sm-6">
+		    <div class="center_h1lil">
+			 <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Corporate Business jobs</h6>
+			</div>
+		   </div>
+		   <div class="col-md-6 col-sm-6">
+		    <div class="center_h1lil">
+			 <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Company Showcase</h6>
+			</div>
+		   </div>
+		  </div>
+		  <div class="center_h1li row mt-4">
+		   <div class="col-md-6 col-sm-6">
+		    <div class="center_h1lil">
+			 <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Creative Services</h6>
+			</div>
+		   </div>
+		   <div class="col-md-6 col-sm-6">
+		    <div class="center_h1lil">
+			 <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Easy To Upload Resume</h6>
+			</div>
+		   </div>
+		  </div>
+		  <div class="center_h1li row mt-4">
+		   <div class="col-md-6 col-sm-6">
+		    <div class="center_h1lil">
+			 <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Online E-commerce</h6>
+			</div>
+		   </div>
+		   <div class="col-md-6 col-sm-6">
+		    <div class="center_h1lil">
+			 <h6 class="mb-0"><i class="fa fa-check-circle fs-2 col_green me-1 align-middle"></i> Hire Expert Candidates</h6>
+			</div>
+		   </div>
+		  </div>
+		  <h6 class="mb-0 mt-4"><a class="button" href="#">Explore More Jobs</a></h6>
+	 </div>
+	</div>
+	<div class="col-md-6">
+	 <div class="advan_2r">
+	    <div class="grid clearfix">
+				  <figure class="effect-jazz mb-0">
+					<a href="#"><img src="img/6.jpg" class="w-100" alt="abc"></a>
+				  </figure>
+			  </div>
+	 </div>
+	</div>
+   </div>
+ </div>
+</section>
+
+<section id="publish" class="pt-5 pb-5 bg-light">
+ <div class="container-xl">
+   <div class="row publish_1 text-center">
+    <div class="publish_1m bg_back">
+	  <div class="col-md-12">
+	  <h3 class="text-white">We develops strategic software solutions for businesses.</h3>
+	  <div class="publish_1i mt-5 row">
+	   <div class="col-md-3 col-sm-6">
+	    <div class="publish_1i1 text-center">
+		 <h1 class="col_green">2007</h1>
+		 <h5 class="text-white">Year of<br>
+establishment</h5>
+		</div>
+	   </div>
+	   <div class="col-md-3 col-sm-6">
+	    <div class="publish_1i1 text-center">
+		 <h1 class="col_green">3.5k+</h1>
+		 <h5 class="text-white">Of customers<br>
+worldwide</h5>
+		</div>
+	   </div>
+	   <div class="col-md-3 col-sm-6">
+	    <div class="publish_1i1 text-center">
+		 <h1 class="col_green">17+</h1>
+		 <h5 class="text-white">Countries with active<br>
+client base</h5>
+		</div>
+	   </div>
+	   <div class="col-md-3 col-sm-6">
+	    <div class="publish_1i1 text-center">
+		 <h1 class="col_green">4.6/5</h1>
+		 <h5 class="text-white">Customer<br>
+rating</h5>
+		</div>
+	   </div>
+	  </div>
+	  <div class="publish_1ib text-center mt-5 row">
+	   <div class="col-md-12">
+	     <p class="text-white">You have better things to do than worry about IT for your small business. <a class="col_green" href="#">Let’s Discuss about Project.</a></p>
+	   </div>
+	  
+	  </div>
+	</div>
+	</div>
+   </div>
+ </div>
+
+</section>
+
+<section id="testim" class="p_3">
+ <div class="container-xl">
+  <div class="row feat_1 text-center mb-4">
+    <div class="col-md-12">
+	 <h1>Good Reviews By Customers</h1>
+	 <p class="mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis <br> praesentium voluptatum deleniti atque corrupti quos dolores</p>
+	</div>
+  </div>
+  <div class="row testim_1">
+    <div class="col-md-4">
+		 <div class="testim_1i p-4 border_1 rounded-3">
+		   <h6 class="fw-bold">"The best useful website"</h6>
+		   <p class="fs-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+		   <span><img src="img/8.jpg" alt="abc" class="rounded-circle me-3 float-start"></span>
+		   <h6 class="mb-0 fw-bold  lh-base"> Eget Nulla <br> <span class="col_blue  font-12 fw-normal col_green">CEO of Climber</span> <br>  <span class="col_oran font_12">
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star-o"></i>
+		 </span></h6>
+		   </div>  
+		</div>
+		<div class="col-md-4">
+		 <div class="testim_1i p-4 border_1 rounded-3">
+		   <h6 class="fw-bold">"Ranking is the #1"</h6>
+		   <p class="fs-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+		   <span><img src="img/9.jpg" alt="abc" class="rounded-circle me-3 float-start"></span>
+		   <h6 class="mb-0 fw-bold  lh-base"> Quis Sem <br> <span class="col_blue  font-12 fw-normal col_green">Founder of Yeloower</span> <br>  <span class="col_oran font_12">
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star-o"></i>
+		 </span></h6>
+		   </div>  
+		</div>
+		<div class="col-md-4">
+		 <div class="testim_1i p-4 border_1 rounded-3">
+		   <h6 class="fw-bold">"The website is eco friendly"</h6>
+		   <p class="fs-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+		   <span><img src="img/10.jpg" alt="abc" class="rounded-circle me-3 float-start"></span>
+		   <h6 class="mb-0 fw-bold  lh-base"> Lorem Amet <br> <span class="col_blue  font-12 fw-normal col_green">CEO of Mark Soft</span> <br>  <span class="col_oran font_12">
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star-o"></i>
+		 </span></h6>
+		   </div>  
+		</div>
+  </div>
+  <div class="row testim_1 mt-4">
+    <div class="col-md-4">
+		 <div class="testim_1i p-4 border_1 rounded-3">
+		   <h6 class="fw-bold">"100% save and secure website"</h6>
+		   <p class="fs-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+		   <span><img src="img/11.jpg" alt="abc" class="rounded-circle me-3 float-start"></span>
+		   <h6 class="mb-0 fw-bold  lh-base"> Ipsum Sit <br> <span class="col_blue  font-12 fw-normal col_green">CEO of Doodle</span> <br>  <span class="col_oran font_12">
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star-o"></i>
+		 </span></h6>
+		   </div>  
+		</div>
+		<div class="col-md-4">
+		 <div class="testim_1i p-4 border_1 rounded-3">
+		   <h6 class="fw-bold">"Very developer friendly website"</h6>
+		   <p class="fs-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+		   <span><img src="img/12.jpg" alt="abc" class="rounded-circle me-3 float-start"></span>
+		   <h6 class="mb-0 fw-bold  lh-base"> Dolor Augue <br> <span class="col_blue  font-12 fw-normal col_green">Founder of Mitche LTD</span> <br>  <span class="col_oran font_12">
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star"></i>
+		  <i class="fa fa-star-o"></i>
+		 </span></h6>
+		   </div>  
+		</div>
+		
+  </div>
+ </div>
+</section>
+
+<section id="blog_h" class="p_3 bg_light">
+ <div class="container-xl">
+   <div class="row feat_1 text-center mb-4">
+    <div class="col-md-12">
+	 <h1>Our Latest Blog</h1>
+	 <p class="mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis <br> praesentium voluptatum deleniti atque corrupti quos dolores</p>
+	</div>
+  </div>
+   <div class="blog_1i row">
+	    <div class="col-md-4">
+		 <div class="blog_1im clearfix position-relative clearfix">
+		  <div class="blog_1im1 clearfix">
+		    <div class="grid clearfix">
+				  <figure class="effect-jazz mb-0">
+					<a href="#"><img src="img/13.jpg" class="w-100" alt="abc"></a>
+				  </figure>
+			  </div>
+		  </div>
+		  <div class="blog_1im2 px-4 position-absolute clearfix">
+		   <ul class="mb-0">
+		     <li class="d-inline-block"><a href="#">ASSET</a></li>
+			  <li class="d-inline-block"><a href="#">EARNING</a></li>
+		   </ul>
+		  </div>
+		 </div>
+		 <div class="blog_1_last bg-white p-4 clearfix">
+		  <h5 class="text-capitalize"><a href="#">attended desirous raptures declared assistance</a></h5>
+			<ul>
+			<li class="d-inline-block font_14 me-2"><a href="#"><i class="fa fa-user col_green me-1"></i> User</a></li>
+			<li class="d-inline-block font_14 me-2"><i class="fa fa-calendar col_green me-1"></i> 13 Dec, 2018</li>
+			<li class="d-inline-block font_14"><a href="#"><i class="fa fa-comments col_green me-1"></i> 13</a></li>
+			</ul>
+			<p>Secanius don yupon ji assaum , consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+			<h6 class="font_14 mb-0"><a class="col_green" href="#">READ MORE <i class="fa fa-chevron-right ms-1"></i></a></h6>
+		 </div>
+		</div>
+		<div class="col-md-4">
+		 <div class="blog_1im clearfix position-relative clearfix">
+		  <div class="blog_1im1 clearfix">
+		    <div class="grid clearfix">
+				  <figure class="effect-jazz mb-0">
+					<a href="#"><img src="img/14.jpg" class="w-100" alt="abc"></a>
+				  </figure>
+			  </div>
+		  </div>
+		  <div class="blog_1im2 px-4 position-absolute clearfix">
+		   <ul class="mb-0">
+		     <li class="d-inline-block"><a href="#">SUCCESS</a></li>
+			  <li class="d-inline-block"><a href="#">PRODUCT</a></li>
+		   </ul>
+		  </div>
+		 </div>
+		 <div class="blog_1_last bg-white p-4 clearfix">
+		  <h5 class="text-capitalize"><a href="#">Prosperous continuing entreat unreserved</a></h5>
+			<ul>
+			<li class="d-inline-block font_14 me-2"><a href="#"><i class="fa fa-user col_green me-1"></i> User</a></li>
+			<li class="d-inline-block font_14 me-2"><i class="fa fa-calendar col_green me-1"></i> 13 Dec, 2018</li>
+			<li class="d-inline-block font_14"><a href="#"><i class="fa fa-comments col_green me-1"></i> 13</a></li>
+			</ul>
+			<p>Secanius don yupon ji assaum , consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+			<h6 class="font_14 mb-0"><a class="col_green" href="#">READ MORE <i class="fa fa-chevron-right ms-1"></i></a></h6>
+		 </div>
+		</div>
+		<div class="col-md-4">
+		 <div class="blog_1im clearfix position-relative clearfix">
+		  <div class="blog_1im1 clearfix">
+		    <div class="grid clearfix">
+				  <figure class="effect-jazz mb-0">
+					<a href="#"><img src="img/15.jpg" class="w-100" alt="abc"></a>
+				  </figure>
+			  </div>
+		  </div>
+		  <div class="blog_1im2 px-4 position-absolute clearfix">
+		   <ul class="mb-0">
+		     <li class="d-inline-block"><a href="#">STARTUP</a></li>
+			  <li class="d-inline-block"><a href="#">BUSINESS</a></li>
+		   </ul>
+		  </div>
+		 </div>
+		 <div class="blog_1_last bg-white p-4 clearfix">
+		  <h5 class="text-capitalize"><a href="#">Justice improve age article between projection</a></h5>
+			<ul>
+			<li class="d-inline-block font_14 me-2"><a href="#"><i class="fa fa-user col_green me-1"></i> User</a></li>
+			<li class="d-inline-block font_14 me-2"><i class="fa fa-calendar col_green me-1"></i> 13 Dec, 2018</li>
+			<li class="d-inline-block font_14"><a href="#"><i class="fa fa-comments col_green me-1"></i> 13</a></li>
+			</ul>
+			<p>Secanius don yupon ji assaum , consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+			<h6 class="font_14 mb-0"><a class="col_green" href="#">READ MORE <i class="fa fa-chevron-right ms-1"></i></a></h6>
+		 </div>
+		</div>
+	   </div>
+ </div>
+
+</section>
+
+<section id="subs" class="pt-5 pb-5 bg_green">
+ <div class="container-xl">
+  <div class="row subs_1 text-center">
+    <div class="col-md-12">
+	 <h1 class="text-white">Are You Already Working With Us?</h1>
+	 <p class="text-light">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis <br> praesentium voluptatum deleniti atque corrupti quos dolores</p>
+	 <div class="input-group bg-white p-2 rounded-3 w-50 mx-auto mt-4">
+				<input type="text" class="form-control border-0 bg-transparent rounded-0" placeholder="Enter Email">
+				<span class="input-group-btn">
+					<button class="btn btn-primary  border-0  p-3 px-4 bg_green" type="button">
+						Subscribe </button>
+				</span>
+		</div>
+	</div>
+  </div>
+ </div>
+</section>
+
+<section id="footer" class="p_3 bg_dark">
+ <div class="container-xl">
+  <div class="row footer_1">
+    <div class="col-md-3">
+	  <div class="footer_1i">
+	   <h4 class="mb-4"><a class="text-white text-uppercase" href="index.html"><i class="fa fa-building col_green me-1 fs-2 align-middle"></i> Consulting</a></h4>
+	   <p class="fs-6 text-white-50 mb-4">Porta Street Eat, Lorem Near Bank Road
+India PMR12356.</p>
+<ul class="social-network social-circle mb-0">
+					<li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+					<li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="#" class="icoGoogle" title="Linkedin"><i class="fa fa-pinterest"></i></a></li>
+				</ul>
+	  </div>
+	</div>
+	<div class="col-md-2">
+		    <div class="footer_1i">
+			 <h5 class="text-white mb-4">For Clients</h5>
+			 <div class="row footer_3ism">
+		 <h6 class="col-md-12 col-6"><a class="text-white-50" href="#"> Talent Marketplace</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Payroll Services</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Direct Contracts</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Hire Worldwide</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Hire in the USA</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2 mb-0"><a class="text-white-50" href="#"> How to Hire</a></h6>
+	    </div>
+			</div>
+		   </div>
+		   <div class="col-md-2">
+		    <div class="footer_1i">
+			 <h5 class="text-white mb-4">Our Resources</h5>
+			 <div class="row footer_3ism">
+		 <h6 class="col-md-12 col-6"><a class="text-white-50" href="#">  Business Tools</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Affiliate Program</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Success Stories</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Upwork Reviews</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Resources</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2 mb-0"><a class="text-white-50" href="#"> Help & Support</a></h6>
+	    </div>
+			</div>
+		   </div>
+		   <div class="col-md-2">
+		    <div class="footer_1i">
+			 <h5 class="text-white mb-4">The Company</h5>
+			 <div class="row footer_3ism">
+		 <h6 class="col-md-12 col-6"><a class="text-white-50" href="#">  About Us</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Leadership</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Contact Us</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Investor Relations</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Safety & Security</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2 mb-0"><a class="text-white-50" href="#"> Our Policy</a></h6>
+	    </div>
+			</div>
+		   </div>
+		   <div class="col-md-3">
+		    <div class="footer_1i">
+			 <h5 class="text-white mb-4">Newsletter</h5>
+			  <p class="text-white-50">We denounce with righteous and in and dislike men who are so beguiled and demo realized.</p>
+		<div class="input-group">
+				<input type="text" class="form-control border-0" placeholder="Your Email">
+				<span class="input-group-btn">
+					<button class="btn btn-primary bg_green rounded-0 p-2 px-3 border-0" type="button">
+						<i class="fa fa-location-arrow"></i> </button>
+				</span>
+		</div>
+			</div>
+		   </div>
+  </div>
+  <div class="row footer_b1 mt-3 pt-3">
+	 <div class="col-md-8">
+	  <div class="footer_b1l">
+	    <p class="mb-0 text-white-50 fs-6">© 2013 Your Website Name. All Rights Reserved | Design by <a class="col_green fw-bold" href="http://www.templateonweb.com">TemplateOnWeb</a></p>
+	  </div>
+	 </div>
+	 <div class="col-md-4">
+	  <div class="footer_b1r text-end">
+	   <ul class="mb-0">
+	    <li class="d-inline-block"><a class="text-white-50" href="#">Pricing</a></li>
+		<li class="d-inline-block mx-2"><a class="text-white-50" href="#">Contact</a></li>
+		<li class="d-inline-block"><a class="text-white-50" href="#">Privacy</a></li>
+	   </ul>
+	  </div>
+	 </div>
+	</div>
+ </div>
+</section>
+
+<script>
+window.onscroll = function() {myFunction()};
+var navbar_sticky = document.getElementById("navbar_sticky");
+var sticky = navbar_sticky.offsetTop;
+var navbar_height = document.querySelector('.navbar').offsetHeight;
+function myFunction() {
+  if (window.pageYOffset >= sticky + navbar_height) {
+    navbar_sticky.classList.add("sticky")
+	document.body.style.paddingTop = navbar_height + 'px';
+  } else {
+    navbar_sticky.classList.remove("sticky");
+	document.body.style.paddingTop = '0'
+  }
+}
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,314 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KaziConnect</title>
+
+    <link rel="shortcut icon" href="{% static 'img/img/img_1.png' %}" type="image/x-icon">
+
+    <!-- Link CSS Files using static tag -->
+    <link href="{% static 'style/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'style/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'style/css/global.css' %}" rel="stylesheet">
+    <link href="{% static 'style/css/index.css' %}" rel="stylesheet">
+
+    <!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    {% if request.resolver_match.url_name == 'dashboard' or request.resolver_match.url_name == 'update-company' or request.resolver_match.url_name == 'create-job' or request.resolver_match.url_name == 'update-resume' or request.resolver_match.url_name == 'manage-jobs' or request.resolver_match.url_name == 'home' or request.resolver_match.url_name == 'job-listing' or request.resolver_match.url_name == 'job-details' or request.resolver_match.url_name == 'all-applicants' or request.resolver_match.url_name == 'applied-jobs' or request.resolver_match.url_name == 'update-job'  %}
+<section id="header">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow_box" id="navbar_sticky">
+        <div class="container-xl">
+            <a class="text-black p-0 navbar-brand fw-bold me-4 text-uppercase" href="{% url 'home' %}">
+                <i class="fa fa-jsfiddle col_green me-1 fs-2 align-middle"></i> KaziConnect
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-md-4 ps-md-2 ms-lg-3 ps-lg-2 ms-xl-5 ps-xl-5 nav_left">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'job-listing' %}">All Jobs</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+					    <li class="nav-item">
+                                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                        </li>
+                        {% if request.user.is_applicant %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'job-listing' %}">Jobs</a>
+                            </li>
+                            {% if request.user.has_resume %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'applied-jobs' %}">Manage Applications</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'update-resume' %}">Create Resume</a>
+                                </li>
+                            {% endif %}
+                        {% elif request.user.is_recruiter %}
+                            {% if request.user.has_company %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'create-job' %}">Create Job Ads</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'manage-jobs' %}">Manage Jobs</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'update-company' %}">Create Company</a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                </ul>
+                <ul class="navbar-nav mb-0 ms-auto">
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Profile
+                            </a>
+                            <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
+                                {% if request.user.is_applicant %}
+                                    <li><a class="dropdown-item" href="{% url 'update-resume' %}">View Resume</a></li>
+                                {% elif request.user.is_recruiter %}
+                                    <li><a class="dropdown-item" href="{% url 'update-company' %}">View Company</a></li>
+                                {% endif %}
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" aria-disabled="true">{{ request.user.email }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'logout' %}" class="btn btn-success btn-rounded">Log Out</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="{% url 'login' %}" class="btn btn-success btn-rounded me-2">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'register-applicant' %}" class="btn btn-outline-success btn-rounded me-2">Register</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
+    {% endif %}
+
+    {% if request.resolver_match.url_name == 'register-applicant' or request.resolver_match.url_name == 'register-recruiter' or request.resolver_match.url_name == 'login' %}
+    <section id="price" class="p_5">
+    <div class="container-fluid col-xl-10 col-xxl-9 px-4 py-5">
+        <div class="row align-items-center g-5 py-2">
+            <div class="col-lg-12 text-center text-lg-start">
+                <h1 class="display-4 fw-bold mb-3">Welcome to Django Job Portal</h1>
+                <p class="col-lg-12 fs-4">
+                    Find the job you need that is tailored to your experience, expertise, and skill sets.
+                    There's plenty of jobs to go around for everyone. Good luck with the hunt!
+                </p>
+            </div>
+            {% endif %}
+            <div class="container-xl col-md-12 mx-auto mt-2">
+                {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    <b>{{ message }}</b>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+   {% block content %}
+   {% endblock content %}
+
+<!--    &lt;!&ndash; Main Content &ndash;&gt;-->
+
+<!--    <div class="container-fluid px-4 py-5">-->
+<!--            <div class="row align-items-center g-5 py-2">-->
+<!--                {% if request.resolver_match.url_name == 'register-applicant' or request.resolver_match.url_name == 'register-recruiter' or request.resolver_match.url_name == 'login' %}-->
+<!--                <div class="col-lg-7 text-center text-lg-start">-->
+<!--                    <h1 class="display-4 fw-bold mb-3">Welcome to Django Job Portal</h1>-->
+<!--                    <p class="col-lg-10 fs-4">-->
+<!--                        Find the job you need that is tailored to your experience, expertise, and skill sets.-->
+<!--                        There's plenty of jobs to go around for everyone. Good luck with the hunt!-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                {% endif %}-->
+<!--                <div class="col-md-12 mx-auto col-lg-12">-->
+<!--                    {%if messages %}-->
+<!--                    {% for message in messages %}-->
+<!--                    <div class="alert alert-{{message.tags}}" role="alert">-->
+<!--                      <b>{{message}}</b>-->
+<!--                    </div>-->
+<!--                    {% endfor %}-->
+
+<!--                    {% endif%}-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--    </div>-->
+
+<section id="subs" class="pt-5 pb-5 bg_green">
+ <div class="container-xl">
+  <div class="row subs_1 text-center">
+    <div class="col-md-12">
+     <!-- Heading -->
+	 <h1 class="text-white">Stay Updated with Our Latest News!</h1>
+     <!-- Description -->
+	 <p class="text-light">
+       Join our community and never miss an update. Get exclusive insights, tips, and updates delivered straight to your inbox.
+     </p>
+     <!-- Subscribe Form -->
+	 <div class="input-group bg-white p-2 rounded-3 w-50 mx-auto mt-4">
+       <input type="email" class="form-control border-0 bg-transparent rounded-0" placeholder="Enter your email address">
+       <span class="input-group-btn">
+         <button class="btn btn-primary border-0 p-3 px-4 bg_green" type="button">
+           Subscribe
+         </button>
+       </span>
+	 </div>
+	</div>
+  </div>
+ </div>
+</section>
+
+<section id="footer" class="p_3 bg_dark">
+ <div class="container-xl">
+  <div class="row footer_1">
+    <div class="col-md-3">
+	  <div class="footer_1i">
+	   <h4 class="mb-4"><a class="text-white text-uppercase" href="index.html"><i class="fa fa-user-tie col_green me-1 fs-2 align-middle"></i> KAZICONNECT </a></h4>
+	   <p class="fs-6 text-white-50 mb-4">Porta Street Eat, Lorem Near Bank Road
+India PMR12356.</p>
+<ul class="social-network social-circle mb-0">
+					<li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+					<li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="#" class="icoGoogle" title="Linkedin"><i class="fa fa-pinterest"></i></a></li>
+				</ul>
+	  </div>
+	</div>
+	<div class="col-md-2">
+		    <div class="footer_1i">
+			 <h5 class="text-white mb-4">For Clients</h5>
+			 <div class="row footer_3ism">
+		 <h6 class="col-md-12 col-6"><a class="text-white-50" href="#"> Talent Marketplace</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Payroll Services</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Direct Contracts</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Hire Worldwide</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Hire in the USA</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2 mb-0"><a class="text-white-50" href="#"> How to Hire</a></h6>
+	    </div>
+			</div>
+		   </div>
+		   <div class="col-md-2">
+		    <div class="footer_1i">
+			 <h5 class="text-white mb-4">Our Resources</h5>
+			 <div class="row footer_3ism">
+		 <h6 class="col-md-12 col-6"><a class="text-white-50" href="#">  Business Tools</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Affiliate Program</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Success Stories</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Upwork Reviews</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Resources</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2 mb-0"><a class="text-white-50" href="#"> Help & Support</a></h6>
+	    </div>
+			</div>
+		   </div>
+		   <div class="col-md-2">
+		    <div class="footer_1i">
+			 <h5 class="text-white mb-4">The Company</h5>
+			 <div class="row footer_3ism">
+		 <h6 class="col-md-12 col-6"><a class="text-white-50" href="#">  About Us</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Leadership</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Contact Us</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Investor Relations</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2"><a class="text-white-50" href="#"> Safety & Security</a></h6>
+	 <h6 class="col-md-12 col-6 mt-2 mb-0"><a class="text-white-50" href="#"> Our Policy</a></h6>
+	    </div>
+			</div>
+		   </div>
+		   <div class="col-md-3">
+		    <div class="footer_1i">
+			 <h5 class="text-white mb-4">Newsletter</h5>
+			  <p class="text-white-50">We denounce with righteous and in and dislike men who are so beguiled and demo realized.</p>
+		<div class="input-group">
+				<input type="text" class="form-control border-0" placeholder="Your Email">
+				<span class="input-group-btn">
+					<button class="btn btn-primary bg_green rounded-0 p-2 px-3 border-0" type="button">
+						<i class="fa fa-location-arrow"></i> </button>
+				</span>
+		</div>
+			</div>
+		   </div>
+  </div>
+  <div class="row footer_b1 mt-3 pt-3">
+	 <div class="col-md-8">
+	  <div class="footer_b1l">
+	    <p class="mb-0 text-white-50 fs-6">© 2024 Kazi Connect. All Rights Reserved | Design by <a class="col_green fw-bold" href="http://www.templateonweb.com"> Ephay Technologies </a></p>
+	  </div>
+	 </div>
+	 <div class="col-md-4">
+	  <div class="footer_b1r text-end">
+	   <ul class="mb-0">
+	    <li class="d-inline-block"><a class="text-white-50" href="#">Pricing</a></li>
+		<li class="d-inline-block mx-2"><a class="text-white-50" href="#">Contact</a></li>
+		<li class="d-inline-block"><a class="text-white-50" href="#">Privacy</a></li>
+	   </ul>
+	  </div>
+	 </div>
+	</div>
+ </div>
+</section>
+
+<script>
+window.onscroll = function() {myFunction()};
+var navbar_sticky = document.getElementById("navbar_sticky");
+var sticky = navbar_sticky.offsetTop;
+var navbar_height = document.querySelector('.navbar').offsetHeight;
+function myFunction() {
+  if (window.pageYOffset >= sticky + navbar_height) {
+    navbar_sticky.classList.add("sticky")
+	document.body.style.paddingTop = navbar_height + 'px';
+  } else {
+    navbar_sticky.classList.remove("sticky");
+	document.body.style.paddingTop = '0'
+  }
+}
+setTimeout(() => {
+    const alert = document.querySelector('.alert');
+    if (alert) {
+        alert.classList.remove('show');
+        alert.classList.add('fade'); // Fades out smoothly
+        setTimeout(() => alert.remove(), 600); // Removes the alert from DOM
+    }
+}, 3000); // Adjust the delay as needed (3000ms = 3 seconds)
+</script>
+</body>
+</html>
+
+
+

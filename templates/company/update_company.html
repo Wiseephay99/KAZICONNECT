@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<section id="center" class="center_o bg_green pt-5 pb-5">
+   <div class="container-xl">
+	 <div class="row center_o1">
+		 <div class="col-md-12">
+		  <h1 class="text-white">Let's Know Your Company</h1>
+		  <h5 class="col_oran mb-0 mt-3"><a class="text-white" href=" {% url  'home' %} ">Home</a> <span class="mx-2 text-white-50">/</span> Company </h5>
+		 </div>
+	 </div>
+ </div>
+</section>
+<section id="contact" class="p_3">
+   <div class="container-xl">
+      <div class="row feat_1 text-center mb-4">
+         <div class="col-md-12">
+            <h1>Create Your Company</h1>
+            <p class="mb-0">Please fill the form and we will guide you to the best solution. Our experts will get in touch soon.</p>
+         </div>
+      </div>
+      <div class="contact_1ro row mx-auto">
+         <div class="col-md-12">
+            <form method="POST">
+               {% csrf_token %}
+               <div class="contact_1ri row">
+                  <div class="col-md-6">
+                     <div class="contact_1ril">
+                        <label class="form-label">Company Name</label>
+                        {% render_field form.name class="form-control border-0 rounded-3 bg_light" placeholder="Enter your company name" %}
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="contact_1ril">
+                        <label class="form-label">Established Date</label>
+                        {% render_field form.est_date class="form-control border-0 rounded-3 bg_light" placeholder="YYYY-MM-DD" %}
+                     </div>
+                  </div>
+               </div>
+               <div class="contact_1ri row mt-4">
+                  <div class="col-md-6">
+                     <div class="contact_1ril">
+                        <label class="form-label">City</label>
+                        {% render_field form.city class="form-control border-0 rounded-3 bg_light" placeholder="Enter your city" %}
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="contact_1ril">
+                        <label class="form-label">State</label>
+                        {% render_field form.state class="form-control border-0 rounded-3 bg_light" placeholder="Enter your state" %}
+                     </div>
+                  </div>
+               </div>
+               <div class="contact_1ri row mt-4">
+                  <div class="col-md-12">
+                     <div class="contact_1ril">
+                        <div class="text-center">
+                           <button type="submit" class="btn btn-success btn-lg">
+                              <i class="fa fa-check-circle me-1 align-middle"></i> Submit Now
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</section>
+
+{% endblock content %}
